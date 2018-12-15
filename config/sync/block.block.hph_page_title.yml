@@ -1,0 +1,20 @@
+uuid: 9e6556bc-b9f2-456e-b85f-bcc643c416b4
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hph
+_core:
+  default_config_hash: YEEw1-1jKRfqGS3Z6B6ZBaYqD4JQXEf26kWystUGnZQ
+id: hph_page_title
+theme: hph
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

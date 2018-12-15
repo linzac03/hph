@@ -1,0 +1,22 @@
+uuid: 35c15ddc-8452-486c-9c8e-0f55bd59c690
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hph
+_core:
+  default_config_hash: Tpn-nh2KkTbRiKfxfDwWVYK3Fi6Sc2Tf7aWRMMIZ2Tc
+id: hph_breadcrumbs
+theme: hph
+region: content
+weight: -45
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

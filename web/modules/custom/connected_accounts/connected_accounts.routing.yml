@@ -1,0 +1,9 @@
+connected_accounts.settings_form:
+  path: '/admin/config/connected_accounts/settings'
+  defaults: 
+    _form: '\Drupal\connected_accounts\Form\ConnectedAccountsForm'
+    _title: 'Connect Accounts'
+  requirements:
+    _role: 'administrator'
+  options:
+    _admin_route: TRUE

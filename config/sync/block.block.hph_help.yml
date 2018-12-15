@@ -1,0 +1,22 @@
+uuid: c2fc424d-17a8-4aac-b0bb-100710bec02d
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - hph
+_core:
+  default_config_hash: VLZxWqugGylxbM7tfDEF1EMJ8KrpRPrg2scnJjQ3FCk
+id: hph_help
+theme: hph
+region: help
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

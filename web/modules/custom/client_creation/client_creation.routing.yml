@@ -1,0 +1,19 @@
+client_creation.settings:
+  path: '/admin/content/client_creation'
+  defaults:
+    _form: '\Drupal\client_creation\Form\ClientSettingsForm'
+    _title: 'Client Settings'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+client_creation.client_setup:
+  path: '/client'
+  defaults:
+    _form: '\Drupal\client_creation\Form\ClientLoginForm'
+    _title: 'Client Login'
+  requirements:
+    _permission: 'access'
+
+ 

@@ -1,0 +1,5 @@
+name: 'Client Creation'
+type: module
+description: 'Module to faciliae the creation of client users'
+core: 8.x
+package: 'Custom'

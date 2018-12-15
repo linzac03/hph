@@ -1,0 +1,23 @@
+<?php
+
+function connected_accounts_uninstall() {
+  if(\Drupal::service('key.repository')->getKey('twitter_comsumer_api_key')) {
+    \Drupal::service('key.repository')
+      ->getKey('twitter_consumer_api_key')
+      ->delete();
+  }
+  if(\Drupal::service('key.repository')->getKey('twitter_access_token')) {
+    \Drupal::service('key.repository')
+      ->getKey('twitter_access_token')
+      ->delete();
+  }
+  // remove tokens/data from storage
+  $config = \Drupal::service('config.factory')->getEditable('connected_accounts.twitter');
+  $config->set('twitter_request_oauth_token',null);
+  $config->set('twitter_request_oauth_token_secret',null);
+  $config->set('twitter_access_oauth_token',null);
+  $config->set('twitter_access_oauth_token_secret',null);
+  $config->set('twitter_data',null);
+  $config->set('twitter_name',null);
+  $config->save();
+}

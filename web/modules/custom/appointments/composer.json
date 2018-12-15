@@ -1,0 +1,14 @@
+{
+  "name": "drupal/appointments",
+  "type": "drupal-module",
+  "description": "Module for creating appointments",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/appointments",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/appointments",
+    "source": "http://cgit.drupalcode.org/appointments"
+  },
+  "require": { }
+}

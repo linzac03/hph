@@ -1,0 +1,6 @@
+connected_accounts.settings_form:
+  title: 'Connected Accounts'
+  route_name: connected_accounts.settings_form
+  description: 'Manage connected accounts'
+  parent: system.admin_config_system
+  weight: 99

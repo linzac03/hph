@@ -1,0 +1,22 @@
+uuid: 65639fb1-67a0-4d9e-adf3-fa039d3a5fc5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hph
+_core:
+  default_config_hash: yJPRzJjU8FPdPcgO1Z3hs2XxxyEOdq4VaS0CW4TikYQ
+id: hph_content
+theme: hph
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

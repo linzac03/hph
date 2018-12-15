@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains client_creation.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function client_creation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the client_creation module.
+    case 'help.page.client_creation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to faciliae the creation of client users') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function client_creation_theme() {
+  return [
+    'client_login' => array(
+      'render element' => 'form'
+    )
+  ];
+}

@@ -1,0 +1,26 @@
+uuid: 7411bb17-3d81-4370-be73-1766cd5f6934
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - hph
+_core:
+  default_config_hash: H5ijG93Jc2RUALcbytTnkK042ewGWdm15Z4pTq4ER5k
+id: hph_main_menu
+theme: hph
+region: header
+weight: 1
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

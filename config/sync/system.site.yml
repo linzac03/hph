@@ -1,0 +1,14 @@
+uuid: 0753f5e5-7ed9-40ea-a08e-8898899002c3
+name: 'hannah paints hair'
+mail: zlintondev@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

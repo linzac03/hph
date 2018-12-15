@@ -1,0 +1,9 @@
+name: Canopy Connected Accounts
+description: Manage Connected Accounts
+package: Custom
+
+type: module
+core: 8.x
+
+dependencies:
+  - key:key

@@ -1,0 +1,22 @@
+uuid: cb7055f9-3fad-4384-ae86-9c8df3fc2ffc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - hph
+_core:
+  default_config_hash: w594ZprRrjnEwmEH_S_S9Xl13CPr5oM6TvHhimGDmoY
+id: hph_local_tasks
+theme: hph
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

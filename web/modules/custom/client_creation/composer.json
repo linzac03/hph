@@ -1,0 +1,14 @@
+{
+  "name": "drupal/client_creation",
+  "type": "drupal-module",
+  "description": "Module to faciliae the creation of client users",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/client_creation",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/client_creation",
+    "source": "http://cgit.drupalcode.org/client_creation"
+  },
+  "require": { }
+}

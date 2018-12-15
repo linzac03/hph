@@ -1,0 +1,5 @@
+name: 'Appointments'
+type: module
+description: 'Module for creating appointments'
+core: 8.x
+package: 'Custom'

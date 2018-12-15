@@ -1,0 +1,22 @@
+uuid: 88c86bee-84f5-4e35-9d83-a4f99842e249
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - hph
+_core:
+  default_config_hash: fCkNMiRAPlwqHlhZ07kxL91gv-Ovc1X5jChSMmPj-5s
+id: hph_messages
+theme: hph
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }
