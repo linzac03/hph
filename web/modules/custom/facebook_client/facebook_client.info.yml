@@ -1,0 +1,7 @@
+name: Facebook Client
+description: Provides API and client for Facebook Graph API
+package: Custom
+
+type: module
+core: 8.x
+

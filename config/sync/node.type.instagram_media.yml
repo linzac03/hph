@@ -1,0 +1,18 @@
+uuid: 2465fee3-e311-421d-bda9-7fc9c7831dfe
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Instagram Media'
+type: instagram_media
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
