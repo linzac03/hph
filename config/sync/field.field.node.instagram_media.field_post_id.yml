@@ -1,0 +1,19 @@
+uuid: 2465d158-4eaf-4ef8-94ce-ee48fd9e10b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_post_id
+    - node.type.instagram_media
+id: node.instagram_media.field_post_id
+field_name: field_post_id
+entity_type: node
+bundle: instagram_media
+label: 'Post ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

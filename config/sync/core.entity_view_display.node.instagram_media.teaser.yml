@@ -1,0 +1,30 @@
+uuid: 7594c387-44fd-418b-aaa0-91be8b0c34e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.instagram_media.body
+    - node.type.instagram_media
+  module:
+    - text
+    - user
+id: node.instagram_media.teaser
+targetEntityType: node
+bundle: instagram_media
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

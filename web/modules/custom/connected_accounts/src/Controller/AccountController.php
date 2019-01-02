@@ -5,6 +5,7 @@ namespace Drupal\connected_accounts\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\connected_accounts\AccountsKeyLoader;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Drupal\facebook_client\Controller\FacebookClient;
 
 class AccountController extends ControllerBase {
 
@@ -159,14 +160,11 @@ class AccountController extends ControllerBase {
 
     //Get tokens from key loader
     $loader = new AccountsKeyLoader();
-    $tokens = $loader->getFacebookKey();
-
-    if (empty($tokens)) {
+    $init = new FacebookClient;
+    if (!isset($init)) {
       return "<p>Unable to load Facebook</p>";
     }
 
-    
-    
 /** TODO: Handle logout */
     if (isset($_GET['logout'])) {
       // remove tokens/data from storage
@@ -183,60 +181,42 @@ class AccountController extends ControllerBase {
       header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
     }
 
+
     //Check for logged in
-    if(null === $config->get('twitter_data') && !isset($_GET['oauth_token'])) {
-      $callback_url = \Drupal::request()->getScheme() . '://' . \Drupal::request()->getHttpHost() . '/admin/config/connected_accounts/settings';
-      try {
-        $request_token = $init->oauth("oauth/request_token", ["oauth_callback" => $callback_url]);
-        if ($request_token) {
-          $config->set('facebook_request_oauth_token',$request_token['oauth_token']);
-          $config->set('facebook_request_oauth_token_secret',$request_token['oauth_token_secret']);
-          $config->save();
-          $login_url = $init->url("oauth/authorize", ["oauth_token" => $request_token['oauth_token']]);
-        }
-      } catch(\Exception $e) {
-        drupal_set_message('Error retrieving request token, likely unauthorized callback URL','error');
-        return '<p>Error retrieving request token</p>';
-      }
+    if(null === $config->get('facebook_logged_in')) {
+      $login_button = $init->getLoginButton(); 
     }
 
     //Check for callback and retrieve access token
     if (isset($_GET['oauth_token'])) {
-      $connection = new TwitterOAuth($tokens['token'],
-                                     $tokens['token_secret'],
-				     $config->get('twitter_request_oauth_token'),
-                                     $config->get('twitter_request_oauth_token_secret'));
-      $access_token = $connection->oauth("oauth/access_token",["oauth_verifier" => $_REQUEST['oauth_verifier']]);
+      $access_token = $init->getAccessToken();
       if ($access_token) {
         // create another connection object with access token
-        $config->set('twitter_access_oauth_token',$access_token['oauth_token']);
-        $config->set('twitter_access_oauth_token_secret',$access_token['oauth_token_secret']);
+        $config->set('facebook_access_oauth_token',$access_token['oauth_token']);
+        $config->set('facebook_access_oauth_token_secret',$access_token['oauth_token_secret']);
         $config->save();
-        $connection = new TwitterOAuth($tokens['token'], 
-                                       $tokens['token_secret'], 
-                                       $access_token['oauth_token'], 
-                                       $access_token['oauth_token_secret']);
-        // set the parameters array with attributes include_entities false
-        $params = ['include_entities'=>'false'];
-        // get the data
-        $data = $connection->get('account/verify_credentials',$params);
-        if ($data) {
-          $config->set('twitter_name', $data->screen_name);
-          $config->save();
-          $redirect = \Drupal::request()->getScheme() . '://' . \Drupal::request()->getHttpHost() . \Drupal::request()->getRequestUri();
-          header('Status: 200'); // The twitteroauth library will complain with the redirects from forge so we set this explicitly
-          header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
-        }
+        $redirect = \Drupal::request()->getScheme() . '://' . \Drupal::request()->getHttpHost() . \Drupal::request()->getRequestUri();
+        header('Status: 200'); // The twitteroauth library will complain with the redirects from forge so we set this explicitly
+        header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
       }
     }
+   
 
-    if(isset($login_url) && null === $config->get('twitter_name')){
+    if(isset($login_button)){
       // Need to decide what to return here for login info
-      return "<a href='$login_url'><button>Login with twitter </button></a>";
-      
+      return $login_button;  
     } else {
-      $name = $config->get('twitter_name');
-      return "<p class='twitter-username'>Logged in as: {$name}</p><a href='?logout=true'><button>Logout</button></a>";
+      return "<p class='instagram-username'>Logged in to Facebook</p><a href='?logout=true'><button>Logout</button></a>";
     } 
   }
+
+  public function getMarkup() {
+    $twitter = $this->twitter();
+    $facebook = $this->facebook();
+
+    return "<div class='twitter'>$twitter</div>" .
+           "<div class='facebook'>$facebook</div>";
+  }
 }
+
+
