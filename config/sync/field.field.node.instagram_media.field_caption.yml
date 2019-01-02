@@ -1,0 +1,21 @@
+uuid: a060364c-980e-41d4-9b2c-7f661a783e3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_caption
+    - node.type.instagram_media
+  module:
+    - text
+id: node.instagram_media.field_caption
+field_name: field_caption
+entity_type: node
+bundle: instagram_media
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

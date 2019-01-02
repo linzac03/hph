@@ -1,0 +1,22 @@
+uuid: ff6d0630-0698-48c9-9cec-2a0d33e6e8df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.instagram_media
+  module:
+    - text
+id: node.instagram_media.body
+field_name: body
+entity_type: node
+bundle: instagram_media
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

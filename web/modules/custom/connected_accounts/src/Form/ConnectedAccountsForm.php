@@ -27,6 +27,13 @@ class ConnectedAccountsForm extends ConfigFormBase {
         '#markup' => $controller->twitter(),
       ],
     ];
+    $form['facebook'] = [
+      '#type' => 'fieldset',
+      '#title' => 'Connect Facebook Account',
+      'button' => [
+        '#markup' => $controller->facebook(),
+      ],
+    ];
 
     return parent::buildForm($form, $form_state);
   }

@@ -1,0 +1,30 @@
+uuid: 72126c8c-6b88-4467-8c97-d5b80f528f62
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.instagram_comment.body
+    - node.type.instagram_comment
+  module:
+    - text
+    - user
+id: node.instagram_comment.teaser
+targetEntityType: node
+bundle: instagram_comment
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
